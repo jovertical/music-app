@@ -4,8 +4,8 @@
         "format": "prettier --write \"resources/**/*.{js,css}\"",
         "dev": "yarn development",
         "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "watch": "yarn development -- --watch",
-        "watch-poll": "yarn watch -- --watch-poll",
+        "watch": "yarn development --watch",
+        "watch-poll": "yarn watch --watch-poll",
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
         "prod": "yarn production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
@@ -22,5 +22,9 @@
         "tailwindcss": "^1.2.0",
         "vue-template-compiler": "^2.6.11"
     },
-    "dependencies": {}
+    "dependencies": {
+        "@inertiajs/inertia": "^0.1.7",
+        "@inertiajs/inertia-vue": "^0.1.2",
+        "vue": "^2.6.11"
+    }
 }
