@@ -1,7 +1,9 @@
+/* eslint-disable no-undef */
 import Vue from 'vue'
 import { InertiaApp } from '@inertiajs/inertia-vue'
 
 Vue.use(InertiaApp)
+Vue.prototype.$route = (...args) => route(...args).url()
 
 const app = document.getElementById('app')
 
@@ -10,7 +12,6 @@ new Vue({
         h(InertiaApp, {
             props: {
                 initialPage: JSON.parse(app.dataset.page),
-                // eslint-disable-next-line no-undef
                 resolveComponent: name => require(`./Pages/${name}`).default,
             },
         }),
