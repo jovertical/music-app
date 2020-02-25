@@ -9,5 +9,5 @@ export default {
     metaInfo: {
         title: 'Browse',
     },
-};
+}
 </script>
