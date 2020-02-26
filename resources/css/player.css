@@ -1,0 +1,45 @@
+.p-toggle.--paused > div:first-child {
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-left: 16px solid white;
+    border-bottom: 8px solid transparent;
+}
+
+.p-toggle.--playing > div {
+    width: 5px;
+    height: 16px;
+    background: white;
+    margin: 0 2px;
+}
+
+.p-nav {
+    height: 10px;
+}
+
+.p-nav > div {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+}
+
+.p-nav.--prev > div {
+    border-right: 10px solid #2300b9;
+}
+
+.p-nav.--pref:disabled > div {
+    border-right: 10px solid #e3e3e3;
+}
+
+.p-nav:disabled {
+    cursor: default;
+}
+
+.p-nav.--next > div {
+    border-left: 10px solid #2300b9;
+}
+
+.p-nav.--next:disabled > div {
+    border-left: 10px solid #e3e3e3;
+}

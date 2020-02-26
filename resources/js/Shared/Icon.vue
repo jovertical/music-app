@@ -77,6 +77,19 @@
                 stroke-linejoin="round"
             />
         </svg>
+        <svg
+            v-if="name === 'plus'"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+        >
+            <path
+                d="M12 4V20M20 12L4 12"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+            />
+        </svg>
     </span>
 </template>
 

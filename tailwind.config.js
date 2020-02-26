@@ -2,7 +2,8 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                cream: '#F5F3F3'
+                indigo: '#2300B9',
+                cream: '#F5F3F3',
             }
         },
     },

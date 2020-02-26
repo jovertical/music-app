@@ -7,13 +7,13 @@
         <title>{{ config('app.name') }}</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
 
         <!-- Styles -->
         <style>
             html, body {
                 background-color: #fff;
-                font-family: 'Nunito', sans-serif;
+                font-family: 'Poppins', sans-serif;
                 margin: 0;
             }
         </style>
