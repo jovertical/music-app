@@ -2,6 +2,7 @@
 import Vue from 'vue'
 import VueMeta from 'vue-meta'
 import { InertiaApp } from '@inertiajs/inertia-vue'
+import 'styles/nprogress.css'
 
 Vue.use(InertiaApp)
 Vue.use(VueMeta)
