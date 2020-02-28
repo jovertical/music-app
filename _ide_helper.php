@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 6.16.0 on 2020-02-25 15:21:49.
+ * Generated for Laravel 6.17.1 on 2020-02-28 15:36:29.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -334,10 +334,10 @@ namespace Illuminate\Support\Facades {
          * @return string|bool
          * @static
          */
-        public static function environment($environments = null)
+        public static function environment(...$environments)
         {
             /** @var \Illuminate\Foundation\Application $instance */
-            return $instance->environment($environments);
+            return $instance->environment(...$environments);
         }
         
         /**
@@ -2414,10 +2414,10 @@ namespace Illuminate\Support\Facades {
          * @return bool
          * @static
          */
-        public static function check($name, $parameters = null)
+        public static function check($name, ...$parameters)
         {
             /** @var \Illuminate\View\Compilers\BladeCompiler $instance */
-            return $instance->check($name, $parameters);
+            return $instance->check($name, ...$parameters);
         }
         
         /**
@@ -3832,10 +3832,10 @@ namespace Illuminate\Support\Facades {
          * @return void
          * @static
          */
-        public static function queue($parameters = null)
+        public static function queue(...$parameters)
         {
             /** @var \Illuminate\Cookie\CookieJar $instance */
-            $instance->queue($parameters);
+            $instance->queue(...$parameters);
         }
         
         /**
@@ -8625,10 +8625,10 @@ namespace Illuminate\Support\Facades {
          * @return bool
          * @static
          */
-        public static function is($patterns = null)
+        public static function is(...$patterns)
         {
             /** @var \Illuminate\Http\Request $instance */
-            return $instance->is($patterns);
+            return $instance->is(...$patterns);
         }
         
         /**
@@ -8638,10 +8638,10 @@ namespace Illuminate\Support\Facades {
          * @return bool
          * @static
          */
-        public static function routeIs($patterns = null)
+        public static function routeIs(...$patterns)
         {
             /** @var \Illuminate\Http\Request $instance */
-            return $instance->routeIs($patterns);
+            return $instance->routeIs(...$patterns);
         }
         
         /**
@@ -8651,10 +8651,10 @@ namespace Illuminate\Support\Facades {
          * @return bool
          * @static
          */
-        public static function fullUrlIs($patterns = null)
+        public static function fullUrlIs(...$patterns)
         {
             /** @var \Illuminate\Http\Request $instance */
-            return $instance->fullUrlIs($patterns);
+            return $instance->fullUrlIs(...$patterns);
         }
         
         /**
@@ -10610,9 +10610,9 @@ namespace Illuminate\Support\Facades {
          *
          * @static
          */
-        public static function validate($rules, $params = null)
+        public static function validate($rules, ...$params)
         {
-            return \Illuminate\Http\Request::validate($rules, $params);
+            return \Illuminate\Http\Request::validate($rules, ...$params);
         }
         
         /**
@@ -10620,9 +10620,9 @@ namespace Illuminate\Support\Facades {
          *
          * @static
          */
-        public static function validateWithBag($errorBag, $rules, $params = null)
+        public static function validateWithBag($errorBag, $rules, ...$params)
         {
-            return \Illuminate\Http\Request::validateWithBag($errorBag, $rules, $params);
+            return \Illuminate\Http\Request::validateWithBag($errorBag, $rules, ...$params);
         }
         
         /**
@@ -11614,10 +11614,10 @@ namespace Illuminate\Support\Facades {
          * @return bool
          * @static
          */
-        public static function is($patterns = null)
+        public static function is(...$patterns)
         {
             /** @var \Illuminate\Routing\Router $instance */
-            return $instance->is($patterns);
+            return $instance->is(...$patterns);
         }
         
         /**
@@ -11627,10 +11627,10 @@ namespace Illuminate\Support\Facades {
          * @return bool
          * @static
          */
-        public static function currentRouteNamed($patterns = null)
+        public static function currentRouteNamed(...$patterns)
         {
             /** @var \Illuminate\Routing\Router $instance */
-            return $instance->currentRouteNamed($patterns);
+            return $instance->currentRouteNamed(...$patterns);
         }
         
         /**
@@ -11652,10 +11652,10 @@ namespace Illuminate\Support\Facades {
          * @return bool
          * @static
          */
-        public static function uses($patterns = null)
+        public static function uses(...$patterns)
         {
             /** @var \Illuminate\Routing\Router $instance */
-            return $instance->uses($patterns);
+            return $instance->uses(...$patterns);
         }
         
         /**
@@ -11846,6 +11846,26 @@ namespace Illuminate\Support\Facades {
         public static function inertia($uri, $component, $props = [])
         {
             return \Illuminate\Routing\Router::inertia($uri, $component, $props);
+        }
+        
+        /**
+         *
+         *
+         * @static
+         */
+        public static function blacklist($group = null)
+        {
+            return \Illuminate\Routing\Router::blacklist($group);
+        }
+        
+        /**
+         *
+         *
+         * @static
+         */
+        public static function whitelist($group = null)
+        {
+            return \Illuminate\Routing\Router::whitelist($group);
         }
     }
 
@@ -15268,6 +15288,75 @@ namespace Facade\Ignition\Facades {
  
 }
 
+namespace Intervention\Image\Facades {
+
+    /**
+     *
+     *
+     */
+    class Image
+    {
+        
+        /**
+         * Overrides configuration settings
+         *
+         * @param array $config
+         * @return self
+         * @static
+         */
+        public static function configure($config = [])
+        {
+            /** @var \Intervention\Image\ImageManager $instance */
+            return $instance->configure($config);
+        }
+        
+        /**
+         * Initiates an Image instance from different input types
+         *
+         * @param mixed $data
+         * @return \Intervention\Image\Image
+         * @static
+         */
+        public static function make($data)
+        {
+            /** @var \Intervention\Image\ImageManager $instance */
+            return $instance->make($data);
+        }
+        
+        /**
+         * Creates an empty image canvas
+         *
+         * @param int $width
+         * @param int $height
+         * @param mixed $background
+         * @return \Intervention\Image\Image
+         * @static
+         */
+        public static function canvas($width, $height, $background = null)
+        {
+            /** @var \Intervention\Image\ImageManager $instance */
+            return $instance->canvas($width, $height, $background);
+        }
+        
+        /**
+         * Create new cached image and run callback
+         * (requires additional package intervention/imagecache)
+         *
+         * @param \Closure $callback
+         * @param int $lifetime
+         * @param boolean $returnObj
+         * @return \Image
+         * @static
+         */
+        public static function cache($callback, $lifetime = null, $returnObj = false)
+        {
+            /** @var \Intervention\Image\ImageManager $instance */
+            return $instance->cache($callback, $lifetime, $returnObj);
+        }
+    }
+ 
+}
+
 
 namespace  {
 
@@ -17350,10 +17439,10 @@ namespace  {
          * @return \Illuminate\Database\Query\Builder
          * @static
          */
-        public static function groupBy($groups = null)
+        public static function groupBy(...$groups)
         {
             /** @var \Illuminate\Database\Query\Builder $instance */
-            return $instance->groupBy($groups);
+            return $instance->groupBy(...$groups);
         }
          
         /**
@@ -18230,6 +18319,10 @@ namespace  {
     }
 
     class Flare extends \Facade\Ignition\Facades\Flare
+    {
+    }
+
+    class Image extends \Intervention\Image\Facades\Image
     {
     }
  

@@ -13,5 +13,5 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', fn () => Inertia::render('Home'))->name('home');
-Route::get('/browse', fn () => Inertia::render('Browse'))->name('browse');
+Route::get('/', fn () => Inertia::render('Welcome'))->name('welcome');
+Route::resource('artists', 'ArtistsController')->only('index');

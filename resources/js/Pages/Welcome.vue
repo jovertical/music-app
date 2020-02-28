@@ -1,6 +1,6 @@
 <template>
     <h1>
-        Home
+        Welcome
     </h1>
 </template>
 
@@ -9,7 +9,7 @@ import Layout from '@/Shared/Layout'
 
 export default {
     metaInfo: {
-        title: 'Home',
+        title: 'Welcome',
     },
     layout: Layout,
 }

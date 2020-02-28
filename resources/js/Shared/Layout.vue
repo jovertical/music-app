@@ -37,17 +37,20 @@
                         </a>
                     </li>
                     <li class="mb-4">
-                        <a href="#" class="inline-flex">
+                        <inertia-link
+                            :href="$route('artists.index')"
+                            class="inline-flex"
+                        >
                             <icon
                                 class="w-6 h-6 mr-3 text-gray-600"
                                 name="user"
                             />
                             <p class="text-gray-900">Artists</p>
-                        </a>
+                        </inertia-link>
                     </li>
                     <li class="mb-4">
                         <inertia-link
-                            :href="$route('browse')"
+                            :href="$route('welcome')"
                             class="inline-flex"
                         >
                             <icon
