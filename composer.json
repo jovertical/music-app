@@ -22,6 +22,7 @@
         "fzaninotto/faker": "^1.9.1",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^3.0",
+        "nunomaduro/phpinsights": "^1.13",
         "phpunit/phpunit": "^8.0"
     },
     "config": {
@@ -53,6 +54,16 @@
     "scripts": {
         "format": [
             "php-cs-fixer fix ."
+        ],
+        "test:insights": [
+            "./vendor/bin/phpinsights analyse --config-path=config/insights.php --min-quality=85 --min-complexity=85 --min-architecture=85 --min-style=85 ."
+        ],
+        "test:unit": [
+            "./vendor/bin/phpunit"
+        ],
+        "test": [
+            "composer test:insights",
+            "composer test:unit"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
