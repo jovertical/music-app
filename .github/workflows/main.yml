@@ -48,8 +48,7 @@ jobs:
             # Update everything.
             git reset --hard && git fetch --all && git pull origin master
             rm -rf .env && SECRET_PASSPHRASE=${{ secrets.SECRET_PASSPHRASE }} sh deployment/scripts/decrypt_secret.sh
-            rm composer.lock
-            composer install --optimize-autoloader --no-dev
+            composer update --optimize-autoloader --no-dev
 
             # Refresh NGINX configurations.
             unlink /etc/nginx/sites-enabled/music-app.com
