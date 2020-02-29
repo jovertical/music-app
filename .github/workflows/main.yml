@@ -34,6 +34,7 @@ jobs:
           yarn prod
           mkdir public/assets
           mv public/{css,js,mix-manifest.json} public/assets/
+          zip -r assets.zip public/assets
 
       - name: Upload front-end assets
         uses: actions/upload-artifact@master
