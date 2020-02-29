@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
 
-      - run: cp deployment/secrets/.env.ci .env
+      - run: cp deployment/secrets/.env.testing .env
 
       - name: Run the test suite
         run: composer test

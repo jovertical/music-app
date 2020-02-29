@@ -9,7 +9,7 @@ class ArtistsController extends Controller
 {
     /**
      * Display a listing of the Resource.
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
     public function index()
