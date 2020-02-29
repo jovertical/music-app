@@ -30,12 +30,10 @@ jobs:
           yarn install
 
       - name: Build front-end assets
-        run: yarn prod
-          
-      - working-directory: public
         run: |
-          mkdir assets
-          mv {css,js,images,mix-manifest.json} assets/ 2>/dev/null
+          yarn prod
+          mkdir public/assets
+          mv public/{css,js,images,mix-manifest.json} public/assets/ 2>/dev/null
 
       - name: Upload front-end assets
         uses: actions/upload-artifact@master
