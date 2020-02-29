@@ -6,7 +6,9 @@ on:
       - master
 
     paths:
-      - resources
+      - resources/css
+      - resources/js
+      - resources/images
 
 jobs:
     Build-Upload:
