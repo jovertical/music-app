@@ -46,10 +46,10 @@ jobs:
             composer install --optimize-autoloader --no-dev
 
             # Refresh NGINX configurations.
-            unlink /etc/nginx/sites-enabled/nginx.conf
-            rm -f /etc/nginx/sites-available/nginx.conf
+            unlink /etc/nginx/sites-enabled/music-app.com
+            rm -f /etc/nginx/sites-available/music-app.com
             cp deployment/nginx.conf /etc/nginx/sites-available/music-app.com
-            ln -s /etc/nginx/sites-available/nginx.conf /etc/nginx/sites-enabled/
+            ln -s /etc/nginx/sites-available/music-app.com /etc/nginx/sites-enabled/
             nginx -t
             systemctl reload nginx
 
