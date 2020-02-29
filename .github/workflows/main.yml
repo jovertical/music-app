@@ -9,6 +9,10 @@ jobs:
   Build-Deploy:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [10.x]
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v1
@@ -21,7 +25,22 @@ jobs:
           coverage: none
 
       - name: Install dependencies
-        run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
+        run: |
+          composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
+          yarn install
+      
+      - name: Build front-end assets
+        run: |
+          yarn prod
+          mkdir public/assets
+          cd public
+          mv -t assets css js images mix-manifest.json 2>/dev/null
+
+      - name: Upload front-end assets
+        uses: actions/upload-artifact@master
+        with:
+          name: assets
+          path: public/assets.zip
 
       - run: cp deployment/secrets/.env.testing .env
 
