@@ -25,23 +25,10 @@ jobs:
           coverage: none
 
       - name: Install dependencies
-        run: |
-          composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
-          yarn install
+        run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
 
-      - name: Build front-end assets
-        run: |
-          yarn prod
-          mkdir public/assets
-          mv public/{css,js,images,mix-manifest.json} public/assets/ 2>/dev/null
-
-      - name: Upload front-end assets
-        uses: actions/upload-artifact@master
-        with:
-          name: assets
-          path: public/assets.zip
-
-      - run: cp deployment/secrets/.env.testing .env
+      - name: Copy environment file
+        run: cp deployment/secrets/.env.testing .env
 
       - name: Run the test suite
         run: composer test
@@ -86,4 +73,18 @@ jobs:
 
             # Finish deployment.
             php artisan up
+
+      - name: Build front-end assets
+        run: |
+          yarn install
+          yarn prod
+      
+      - name: Upload front-end assets
+        uses: appleboy/scp-action@master
+        with:
+          host: 128.199.224.8
+          username: root
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "public/css,public/js,public/mix-manifest.json"
+          target: "/var/www/music-app"
 
