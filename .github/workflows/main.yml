@@ -3,7 +3,7 @@ name: Actions
 on:
   push:
     branches:
-      - master
+      - fix/workflow
 
 jobs:
   Build-Deploy:
@@ -33,7 +33,7 @@ jobs:
         run: |
           yarn prod
           mkdir public/assets
-          mv public/{css,js,images,mix-manifest.json} public/assets/ 2>/dev/null
+          ls public
 
       - name: Upload front-end assets
         uses: actions/upload-artifact@master
