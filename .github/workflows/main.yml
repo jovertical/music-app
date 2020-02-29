@@ -33,7 +33,7 @@ jobs:
         run: |
           yarn prod
           mkdir public/assets
-          ls public
+          mv public/{css,js,mix-manifest.json} public/assets/
 
       - name: Upload front-end assets
         uses: actions/upload-artifact@master
