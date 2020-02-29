@@ -19,6 +19,10 @@ const tailwindcss = require('tailwindcss')
 mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css/app.css')
     .options({
+        hmrOptions: {
+            host: 'music-app.test',
+            port: 8080
+        },
         postCss: [
             cssImport(),
             cssNesting(),

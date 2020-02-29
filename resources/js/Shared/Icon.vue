@@ -1,6 +1,24 @@
 <template>
     <span>
-        <svg v-if="name === 'clock'" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg
+            v-if="name === 'filter'"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+        >
+            <path
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"
+            />
+        </svg>
+        <svg
+            v-if="name === 'clock'"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+        >
             <path
                 d="M12 8V12L15 15M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
                 stroke-width="1.5"
@@ -8,7 +26,12 @@
                 stroke-linejoin="round"
             />
         </svg>
-        <svg v-if="name === 'heart'" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg
+            v-if="name === 'heart'"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+        >
             <path
                 d="M4.31802 6.31802C2.56066 8.07538 2.56066 10.9246 4.31802 12.682L12.0001 20.364L19.682 12.682C21.4393 10.9246 21.4393 8.07538 19.682 6.31802C17.9246 4.56066 15.0754 4.56066 13.318 6.31802L12.0001 7.63609L10.682 6.31802C8.92462 4.56066 6.07538 4.56066 4.31802 6.31802Z"
                 stroke-width="1.5"
@@ -16,7 +39,12 @@
                 stroke-linejoin="round"
             />
         </svg>
-        <svg v-if="name === 'tag'" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg
+            v-if="name === 'tag'"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+        >
             <path
                 d="M7 7H7.01M7 3H12C12.5119 2.99999 13.0237 3.19525 13.4142 3.58579L20.4143 10.5858C21.1953 11.3668 21.1953 12.6332 20.4143 13.4142L13.4142 20.4142C12.6332 21.1953 11.3668 21.1953 10.5858 20.4142L3.58579 13.4142C3.19526 13.0237 3 12.5118 3 12V7C3 4.79086 4.79086 3 7 3Z"
                 stroke-width="1.5"
@@ -24,7 +52,12 @@
                 stroke-linejoin="round"
             />
         </svg>
-        <svg v-if="name === 'user'" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg
+            v-if="name === 'user'"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+        >
             <path
                 d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
                 stroke-width="1.5"
@@ -38,7 +71,12 @@
                 stroke-linejoin="round"
             />
         </svg>
-        <svg v-if="name === 'eye'" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg
+            v-if="name === 'eye'"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+        >
             <path
                 d="M14.9998 12C14.9998 13.6569 13.6566 15 11.9998 15C10.3429 15 8.99976 13.6569 8.99976 12C8.99976 10.3431 10.3429 9 11.9998 9C13.6566 9 14.9998 10.3431 14.9998 12Z"
                 stroke-width="1.5"
@@ -52,7 +90,12 @@
                 stroke-linejoin="round"
             />
         </svg>
-        <svg v-if="name === 'plus'" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg
+            v-if="name === 'plus'"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+        >
             <path
                 d="M12 4V20M20 12L4 12"
                 stroke-linecap="round"

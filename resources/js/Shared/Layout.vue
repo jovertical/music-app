@@ -1,26 +1,34 @@
 <template>
-    <div class="flex relative min-h-screen">
-        <div class="w-1/5 bg-cream hidden lg:flex flex-col px-12 pt-16">
+    <div class="flex flex-wrap relative min-h-screen">
+        <div
+            class="w-1/5 bg-cream hidden lg:flex flex-col flex-no-wrap px-12 pt-16"
+        >
             <div class="mb-10">
                 <h2 class="mb-4 text-gray-600 font-bold">MY MUSIC</h2>
                 <ul class="flex flex-col">
                     <li class="mb-4">
-                        <a href="#" class="inline-flex">
+                        <inertia-link
+                            :href="$route('welcome')"
+                            class="inline-flex"
+                        >
                             <icon
                                 class="w-6 h-6 mr-3 text-gray-600"
                                 name="clock"
                             />
                             <p class="text-gray-900">Recently Played</p>
-                        </a>
+                        </inertia-link>
                     </li>
                     <li>
-                        <a href="#" class="inline-flex">
+                        <inertia-link
+                            :href="$route('welcome')"
+                            class="inline-flex"
+                        >
                             <icon
                                 class="w-6 h-6 mr-3 text-gray-600"
                                 name="heart"
                             />
                             <p class="text-gray-900">Favorites</p>
-                        </a>
+                        </inertia-link>
                     </li>
                 </ul>
             </div>
@@ -28,13 +36,16 @@
                 <h2 class="mb-4 text-gray-600 font-bold">DISCOVER</h2>
                 <ul class="flex flex-col">
                     <li class="mb-4">
-                        <a href="#" class="inline-flex text-gray-600">
+                        <inertia-link
+                            :href="$route('welcome')"
+                            class="inline-flex"
+                        >
                             <icon
                                 class="w-6 h-6 mr-3 text-gray-600"
                                 name="tag"
                             />
                             <p class="text-gray-900">Albums</p>
-                        </a>
+                        </inertia-link>
                     </li>
                     <li class="mb-4">
                         <inertia-link
@@ -64,9 +75,7 @@
             </div>
             <div>
                 <h2 class="mb-4 text-gray-600 font-bold inline-flex">
-                    <span class="mr-3">
-                        PLAYLISTS
-                    </span>
+                    <span class="mr-3">PLAYLISTS</span>
                     <icon class="w-6 h-6" name="plus" />
                 </h2>
                 <ul
@@ -75,19 +84,19 @@
                     class="flex flex-col"
                 >
                     <li class="mb-4">
-                        <a href="#" class="text-gray-900">
+                        <inertia-link :href="$route('welcome')">
                             {{ playlist.name }}
-                        </a>
+                        </inertia-link>
                     </li>
                 </ul>
             </div>
         </div>
 
-        <main class="pt-5 px-10">
+        <main class="w-full lg:w-4/5 px-10 pt-5">
             <slot />
         </main>
 
-        <player class="fixed bottom-0 right-0 w-4/5" />
+        <player class="hidden lg:flex fixed bottom-0 right-0 w-4/5" />
     </div>
 </template>
 

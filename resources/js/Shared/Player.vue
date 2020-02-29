@@ -1,5 +1,7 @@
 <template>
-    <div class="flex items-center justify-between h-24 px-5 py-5 bg-gray-100">
+    <div
+        class="flex items-center justify-between h-24 px-5 py-5 bg-gray-100 opacity-75"
+    >
         <div v-if="currentTrack !== null" class="flex items-center w-1/4 mx-5">
             <div class="w-16 h-16 mr-5 border-2 border-white rounded-lg">
                 <img
@@ -45,9 +47,7 @@
             </div>
         </div>
         <div class="w-1/4 mx-5">
-            <h2 class="text-gray-600">
-                UP NEXT
-            </h2>
+            <h2 class="text-gray-600">UP NEXT</h2>
             <p
                 v-if="nextTrack !== null"
                 class="text-sm font-bold"
@@ -68,7 +68,7 @@ export default {
             currentTrack: {
                 id: 1,
                 title: 'Old Town Road',
-                thumbnail_url: '/images/yellow-and-red-abstract-painting.jpg',
+                thumbnail_url: '/storage/8/abstract.jpeg',
                 artist: {
                     id: 1,
                     name: 'Lil Nas X Billy Ray Cyrus',
@@ -77,7 +77,7 @@ export default {
             nextTrack: {
                 id: 2,
                 title: 'Sandali',
-                thumbnail_url: '/images/teal-white-and-pink-paint.jpg',
+                thumbnail_url: '/storage/4/abstract.jpeg',
                 artist: {
                     id: 2,
                     name: 'Lyndon Montera',
