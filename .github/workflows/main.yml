@@ -17,74 +17,73 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v1
 
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v1
-        with:
-          php-version: '7.4'
-          extensions: curl, mbstring, openssl, pdo, sqlite3, xml
-          coverage: none
+      # - name: Setup PHP
+      #   uses: shivammathur/setup-php@v1
+      #   with:
+      #     php-version: '7.4'
+      #     extensions: curl, mbstring, openssl, pdo, sqlite3, xml
+      #     coverage: none
 
-      - name: Install dependencies
-        run: |
-          composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
-          yarn install
+      # - name: Install dependencies
+      #   run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
+
+      # - run: cp deployment/secrets/.env.testing .env
+
+      # - name: Run the test suite
+      #   run: composer test
+
+      # - name: Deploy
+      #   uses: appleboy/ssh-action@master
+      #   with: 
+      #     host: 128.199.224.8
+      #     username: root
+      #     key: ${{ secrets.SSH_PRIVATE_KEY }}
+      #     script: |
+      #       cd /var/www/music-app            
+            
+      #       # Put the app in to maintenance mode.
+      #       php artisan down
+
+      #       # Update everything.
+      #       git reset --hard && git fetch --all && git pull origin master
+      #       rm -rf .env && SECRET_PASSPHRASE=${{ secrets.SECRET_PASSPHRASE }} sh deployment/scripts/decrypt_secret.sh
+      #       rm composer.lock
+      #       composer install --optimize-autoloader --no-dev
+
+      #       # Refresh NGINX configurations.
+      #       unlink /etc/nginx/sites-enabled/music-app.com
+      #       rm -f /etc/nginx/sites-available/music-app.com
+      #       cp deployment/nginx.conf /etc/nginx/sites-available/music-app.com
+      #       ln -s /etc/nginx/sites-available/music-app.com /etc/nginx/sites-enabled/
+      #       nginx -t
+      #       systemctl reload nginx
+
+      #       # Optimize Laravel.
+      #       php artisan config:cache
+      #       php artisan route:cache
+      #       php artisan view:cache
+
+      #       # Run the migrations.
+      #       php artisan migrate --force
+
+      #       # Give proper file ownership & permissions.
+      #       chown -R www-data bootstrap/cache storage
+      #       chmod 775 bootstrap/cache storage
+
+      #       # Finish deployment.
+      #       php artisan up
 
       - name: Build front-end assets
         run: |
+          yarn install
           yarn prod
-          mkdir public/assets
-          mv public/{css,js,mix-manifest.json} public/assets/
-          zip -r assets.zip public/assets
-
+      
       - name: Upload front-end assets
-        uses: actions/upload-artifact@master
+        uses: appleboy/scp-action@master
         with:
-          name: assets
-          path: public/assets.zip
-
-      - run: cp deployment/secrets/.env.testing .env
-
-      - name: Run the test suite
-        run: composer test
-
-      - name: Deploy
-        uses: appleboy/ssh-action@master
-        with: 
           host: 128.199.224.8
           username: root
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            cd /var/www/music-app            
-            
-            # Put the app in to maintenance mode.
-            php artisan down
-
-            # Update everything.
-            git reset --hard && git fetch --all && git pull origin master
-            rm -rf .env && SECRET_PASSPHRASE=${{ secrets.SECRET_PASSPHRASE }} sh deployment/scripts/decrypt_secret.sh
-            rm composer.lock
-            composer install --optimize-autoloader --no-dev
-
-            # Refresh NGINX configurations.
-            unlink /etc/nginx/sites-enabled/music-app.com
-            rm -f /etc/nginx/sites-available/music-app.com
-            cp deployment/nginx.conf /etc/nginx/sites-available/music-app.com
-            ln -s /etc/nginx/sites-available/music-app.com /etc/nginx/sites-enabled/
-            nginx -t
-            systemctl reload nginx
-
-            # Optimize Laravel.
-            php artisan config:cache
-            php artisan route:cache
-            php artisan view:cache
-
-            # Run the migrations.
-            php artisan migrate --force
-
-            # Give proper file ownership & permissions.
-            chown -R www-data bootstrap/cache storage
-            chmod 775 bootstrap/cache storage
-
-            # Finish deployment.
-            php artisan up
+          source: "public/css,public/js,public/mix-manifest.json"
+          target: "/var/www/music-app/public"
 
