@@ -85,5 +85,5 @@ jobs:
           username: root
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "public/css,public/js,public/mix-manifest.json"
-          target: "/var/www/music-app/public/"
+          target: "/var/www/music-app/public/."
 
